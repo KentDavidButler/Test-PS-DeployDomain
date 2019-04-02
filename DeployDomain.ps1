@@ -1,14 +1,26 @@
 ﻿if($hyperv.State -eq "Enabled")
 {
-    if(
+    if(Get-VM -isnot null)
+    {
+        #check perameters of machine
+        #OS, isDomain, isFW-Enabled
+    }
+    else
+    {
 
-
+        #create new VM
+        #need to determin what to create
+        #a DC with domain? a simple win 10 os? remember babysteps over leaps and bounds
+    }
 
 }
 Else
 {
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 }
+
+
+
 
 if(1 -eq 2)
 {
