@@ -1,0 +1,1 @@
+This is a testing repository to better understand PowerShell and some of its functionality, in hopes to automate some of the windows deployment abilities
