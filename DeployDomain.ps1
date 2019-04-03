@@ -4,6 +4,9 @@
     #some point we'll need to check for virtual switch
     if(Get-VM -isnot null)
     {
+        Get-VM | Format-Table Name
+        $SelectVM = Read-Host -Prompt 'Select a VM'
+
         #check perameters of machine
         #OS, isDomain, isFW-Enabled
     }
@@ -11,7 +14,10 @@
     {
         $NIC = Get-VMSwitch | Select-Object -First 1
         $GetVMSwitchName = $NIC.Name
-        New-VM -Name TestWin10VM -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch $GetVMSwitchName
+        $VMName = Read-Host -Prompt 'Input your VM  name'
+
+
+        New-VM -Name $VMName -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch $GetVMSwitchName
         #create new VM
         #need to determin what to create
         #a DC with domain? a simple win 10 os? remember babysteps over leaps and bounds
